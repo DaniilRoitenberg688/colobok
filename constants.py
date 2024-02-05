@@ -1,18 +1,15 @@
-import pygame
-
+# размеры окна
 WIDTH = 600
-
-CELL_SIZE = 75
-
 HEIGHT = 750
 
+# размер клетки
+CELL_SIZE = 75
+
+# цвет заднего фона
 BACKGROUND_GREY = (240, 240, 240)
 
+# серый цвет
 GREY = (128, 128, 128)
 
+# фпс
 FPS = 60
-
-
-def main_exit():
-    pygame.quit()
-    exit()

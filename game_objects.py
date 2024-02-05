@@ -91,7 +91,7 @@ class Player(pygame.sprite.Sprite):
             patron = Patron(self.rect.x + 20, self.rect.y + 22, 7, 0)
 
         pygame.mixer.init()
-        pygame.mixer.music.load('data/shot.mp3')
+        pygame.mixer.music.load('data/sounds/shot.mp3')
         pygame.mixer.music.play(1)
         pygame.mixer.music.set_volume(0.5)
 
@@ -101,10 +101,10 @@ class Player(pygame.sprite.Sprite):
 class EmptyGround(pygame.sprite.Sprite):
     """Класс пола"""
 
-    def __init__(self, x, y, number=1):
+    def __init__(self, x, y):
         super().__init__(all_sprites_group)
         # настройка
-        self.image = load_image(f'floor_{number}.png')
+        self.image = load_image('floor_1.png')
 
         self.rect = self.image.get_rect()
 
@@ -232,11 +232,16 @@ class Particles(pygame.sprite.Sprite):
 
 
 class Sword(pygame.sprite.Sprite):
+    """Класс меча для усложнения игры"""
+
     def __init__(self, start_x, start_y, dx, dy):
         super().__init__(enemies_group, all_sprites_group)
 
+        # настройка меча в соответствии с направлением его движения
         if dx:
+            # по горизонтали
             if dx > 0:
+                # вправо
                 self.image = load_image('sword_0.png')
                 self.rect = self.image.get_rect()
                 self.rect.x = start_x + 20
@@ -254,6 +259,7 @@ class Sword(pygame.sprite.Sprite):
                 self.slow_dx = -1
 
             if dx < 0:
+                # влево
                 self.image = load_image('sword_2.png')
                 self.rect = self.image.get_rect()
                 self.rect.x = start_x
@@ -271,7 +277,9 @@ class Sword(pygame.sprite.Sprite):
                 self.slow_dx = 1
 
         if dy:
+            # по вертикали
             if dy > 0:
+                # вниз
                 self.image = load_image('sword_1.png')
                 self.rect = self.image.get_rect()
                 self.rect.y = start_y + 20
@@ -289,6 +297,7 @@ class Sword(pygame.sprite.Sprite):
                 self.slow_dy = -1
 
             if dy < 0:
+                # вверх
                 self.image = load_image('sword_3.png')
                 self.rect = self.image.get_rect()
                 self.rect.y = start_y
@@ -307,25 +316,34 @@ class Sword(pygame.sprite.Sprite):
 
     def update(self, *args, **kwargs):
         if self.dx:
+            # если движется по горизонтали
             if abs(self.rect.x - self.end_x) <= 1:
+                # если надо двигаться обратно меняем ускорение на медленное
                 self.dx = self.slow_dx
             if abs(self.rect.x - self.start_x) <= 1:
+                # если надо двигаться в сторону игрока, то делаем ускорение более быстрым
                 self.dx = self.fast_dx
 
             self.rect.x += self.dx
 
         if self.dy:
+            # если движется по вертикали
             if abs(self.rect.y - self.end_y) <= 1:
+                # если надо двигаться обратно меняем ускорение на медленное
                 self.dy = self.slow_dy
             if abs(self.rect.y - self.start_y) <= 1:
+                # если надо двигаться в сторону игрока, то делаем ускорение более быстрым
                 self.dy = self.fast_dy
             self.rect.y += self.dy
 
 
 class FollowingPacman(pygame.sprite.Sprite):
+    """Класс преследующего пакмена"""
+
     def __init__(self, number):
+        # настройка
         super().__init__(pacman_group, enemies_group, all_sprites_group)
-        self.images = [load_image('pacman_openned.png'), load_image('pacman_closed.png')]
+        self.images = [load_image('pacman_opened.png'), load_image('pacman_closed.png')]
         self.current = 0
         self.image = self.images[self.current]
         self.rect = self.image.get_rect()
@@ -333,19 +351,21 @@ class FollowingPacman(pygame.sprite.Sprite):
         self.rect.y = 800
         self.number = number
 
-        self.time = 0
-
     def update(self, *args, **kwargs):
         self.rect.y += -1
+        # если касаемся игрока, то закрываем рот
         if pygame.sprite.spritecollideany(self, player_group):
             self.image = self.images[1]
             self.rect.y -= 20
 
 
 class Bow(pygame.sprite.Sprite):
+    """Класс лука"""
+
     def __init__(self, x, y, direction):
         super().__init__(enemies_group, all_sprites_group)
 
+        # определяем направление стрел лука
         if direction == 0:
             self.arrow_speed = (5, 0)
         if direction == 1:
@@ -355,6 +375,7 @@ class Bow(pygame.sprite.Sprite):
         if direction == 3:
             self.arrow_speed = (0, -5)
 
+        # загружаем картинки натянутого лука и обычного
         self.images = [load_image(f'bow_{direction}.png'), load_image(f'bow_with_arrow_{direction}.png')]
 
         self.current = 0
@@ -365,14 +386,17 @@ class Bow(pygame.sprite.Sprite):
         self.rect.x = x + 5
         self.rect.y = y
 
+        # эти переменные нужны для того, чтобы между выстрелами было время
         self.time = 0
-
         self.how_long_wait = randint(40, 70)
 
     def update(self, *args, **kwargs):
+        # если мы прождали
         if self.time == self.how_long_wait:
+            # если лук не натянут натягиваем его
             if self.current == 0:
                 self.current = 1
+            # если натянут стреляем
             else:
                 Arrow(self.rect.x, self.rect.y, self.arrow_speed[0], self.arrow_speed[1])
                 self.current = 0
@@ -384,8 +408,11 @@ class Bow(pygame.sprite.Sprite):
 
 
 class Arrow(pygame.sprite.Sprite):
+    """Класс стрелы"""
+
     def __init__(self, x, y, dx, dy):
         super().__init__(enemies_group, all_sprites_group)
+        # задаем направление относительно ускорения
         if dx:
             if dx > 0:
                 self.image = load_image('arrow_0.png')
@@ -397,6 +424,7 @@ class Arrow(pygame.sprite.Sprite):
             if dy < 0:
                 self.image = load_image('arrow_3.png')
 
+        # позиционируем чтобы стрела вылетала не из воздуха, а из лука
         self.rect = self.image.get_rect()
         self.rect.x = x + dx * 4 + 20
         self.rect.y = y + dy * 4 + 20
@@ -404,6 +432,7 @@ class Arrow(pygame.sprite.Sprite):
         self.dy = dy
 
     def update(self, *args, **kwargs):
+        # если касаемся стены исчезаем
         if pygame.sprite.spritecollideany(self, walls_group) or pygame.sprite.spritecollideany(self, barrels_group):
             self.kill()
         self.rect.x += self.dx
@@ -411,6 +440,8 @@ class Arrow(pygame.sprite.Sprite):
 
 
 class WinPlace(pygame.sprite.Sprite):
+    """Место по достижении, которого игрок выигрывает"""
+
     def __init__(self, x, y):
         super().__init__(all_sprites_group, win_place_group)
         self.image = load_image('win_place.png')
@@ -420,68 +451,90 @@ class WinPlace(pygame.sprite.Sprite):
 
 
 class BossPacman(pygame.sprite.Sprite):
+    """Класс босс пакмена из второго уровня"""
+
+    # было тяжело
     def __init__(self, x, y):
         super().__init__(enemies_group)
 
+        # загрузка изображений
         self.images = [load_image('pacman_boss_open.png'), load_image('pacman_boss_close.png')]
         self.image = self.images[1]
 
         self.rect = self.image.get_rect()
 
+        # позиционирование
         self.rect.x = x * CELL_SIZE - 90
         self.rect.y = y * CELL_SIZE + 50
 
         self.dx = 2
 
+        # точки, в которые пакмен может прийти, для выстрела
         self.current = 4
         self.possible_coordinates = [self.rect.x - 3 * CELL_SIZE, self.rect.x - 2 * CELL_SIZE, self.rect.x - CELL_SIZE,
                                      self.rect.x,
                                      self.rect.x + CELL_SIZE, self.rect.x + 2 * CELL_SIZE, self.rect.x + 3 * CELL_SIZE]
 
+        # переменные для того, чтобы выстрелы шли не сразу
         self.wait = False
         self.wait_counter = 0
 
+        # здоровье
         self.hp = 20
 
     def update(self, *args, **kwargs):
 
+        # если касаемся патрона игрока уменьшаем хп
         if pygame.sprite.spritecollideany(self, patrons_group):
             self.hp -= 1
 
+        # если мы сейчас ждем проверяем прошло время и прибавляем к счетчику времени один
         if self.wait:
             if self.wait_counter == 60:
                 self.wait_counter = 0
                 self.wait = False
             self.wait_counter += 1
 
+        # если не ждем
         if not self.wait:
+            # если мы в заданной точке
             if abs(self.rect.x - self.possible_coordinates[self.current]) <= 1:
+                # меняем изображение на изображение с открытым ртом
                 self.image = self.images[0]
+
+                # выбираем новую случайную координату
                 new = self.current
                 while new == self.current:
                     self.current = randint(0, 6)
 
+                # меняем ускорение относительно новой координаты
                 if self.rect.x > self.possible_coordinates[self.current]:
                     self.dx = -2
                 if self.rect.x < self.possible_coordinates[self.current]:
                     self.dx = 2
 
+                # начинаем ждать
                 self.wait = True
 
+                # стреляем с соответствующим звуком
                 self.shot(self.rect.x, self.rect.y)
-                pygame.mixer.music.load('data/pacman_shot.mp3')
+                pygame.mixer.music.load('data/sounds/pacman_shot.mp3')
                 pygame.mixer.music.set_volume(0.5)
                 pygame.mixer.music.play(1)
 
+        # если не ждем, то движемся
         if not self.wait and self.rect.x != self.possible_coordinates[self.current]:
             self.image = self.images[1]
             self.rect.x += self.dx
 
     def shot(self, x, y):
+        """Выстрел"""
         PacPatron(x + 50, y + 100)
 
 
 class PacPatron(pygame.sprite.Sprite):
+    """Класс патрона пакмена"""
+
     def __init__(self, x, y):
         super().__init__(enemies_group)
         self.image = load_image('pac_patron.png', -1)
@@ -510,16 +563,17 @@ class Camera:
     def update(self, object):
         """Смещение всех объектов"""
 
+        # если меч, то меняем и координаты остановок меча
         if type(object) == Sword:
             object.end_x += self.x_shift
             object.start_x += self.x_shift
             object.end_y += self.y_shift
             object.start_y += self.y_shift
 
+        # если преследующий пакмен, то смещение немного больше так как он очень быстро движется
         if type(object) == FollowingPacman:
             object.rect.y += self.y_shift * object.number
             object.rect.x += -self.x_shift
-
 
         object.rect.x += self.x_shift
         object.rect.y += self.y_shift
@@ -539,6 +593,7 @@ def generate_level(level):
     for y in range(len(level)):
         for x in range(len(level[y])):
 
+            # создание босса пакмена
             if level[y][x] == 'B':
                 pacman = BossPacman(x, y)
 
@@ -547,10 +602,12 @@ def generate_level(level):
                 EmptyGround(x * CELL_SIZE, y * CELL_SIZE)
                 Barrel(x, y, level)
 
+            # создание победного места
             if level[y][x] == '!':
                 EmptyGround(x * CELL_SIZE, y * CELL_SIZE)
                 WinPlace(x * CELL_SIZE, y * CELL_SIZE)
 
+            # создание лука
             if level[y][x] == 't':
                 Bow(x * CELL_SIZE, y * CELL_SIZE, 0)
             if level[y][x] == 'y':
@@ -560,6 +617,7 @@ def generate_level(level):
             if level[y][x] == 'i':
                 Bow(x * CELL_SIZE, y * CELL_SIZE, 3)
 
+            # создание меча
             if level[y][x] == 'q':
                 Sword(x * CELL_SIZE, y * CELL_SIZE, 2, 0)
             if level[y][x] == 'e':
@@ -572,9 +630,11 @@ def generate_level(level):
             # создание стены
             if level[y][x] in '01234567':
                 Wall(x * CELL_SIZE, y * CELL_SIZE, level[y][x])
+
             # создание пола
             if level[y][x] == 's':
                 EmptyGround(x * CELL_SIZE, y * CELL_SIZE)
+
             # создание врага который движется горизонтально
             if level[y][x] == 'h':
                 EmptyGround(x * CELL_SIZE, y * CELL_SIZE)
@@ -583,6 +643,7 @@ def generate_level(level):
             if level[y][x] == 'v':
                 EmptyGround(x * CELL_SIZE, y * CELL_SIZE)
                 Enemy(x, y, (0, 4))
+
             # создание персонажа
             elif level[y][x] == '@':
                 EmptyGround(x * CELL_SIZE, y * CELL_SIZE)

@@ -4,8 +4,74 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85d9c359-c8ac-4765-a1a1-117bea14177d" name="Changes" comment="вся игра и звук">
+    <list default="true" id="85d9c359-c8ac-4765-a1a1-117bea14177d" name="Changes" comment="новое README">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/constants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/arrow_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/arrow_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/arrow_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/arrow_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/barrel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/barrel_25.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/bow_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/bow_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/bow_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/bow_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/bow_with_arrow_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/bow_with_arrow_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/bow_with_arrow_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/bow_with_arrow_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/concept0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/enemy_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/floor_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/fon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/fon_musik.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/data/sounds/fon_musik.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/for_fon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/full_red.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/full_red_down.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/full_red_left.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/full_red_right.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/map0.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/map1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/map2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/meet_wall.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/data/sounds/meet_wall.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/minecraft-ten-font-cyrillic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/data/font/minecraft-ten-font-cyrillic.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/pac_patron.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/pacman_boss_close.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/pacman_boss_open.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/pacman_closed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/pacman_die.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/data/sounds/pacman_die.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/pacman_openned.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/pacman_shot.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/data/sounds/pacman_shot.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/player_die.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/data/sounds/player_die.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/red.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/red_hands.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/shot.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/data/sounds/shot.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/si.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/data/sounds/si.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/star.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/sword_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/sword_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/sword_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/sword_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/wall_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/wall_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/wall_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/wall_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/wall_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/wall_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/wall_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/wall_7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/win_place.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/yellow_hand.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Снимок экрана 2024-01-15 155105.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Снимок экрана 2024-01-19 214239.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/first_level.py" beforeDir="false" afterPath="$PROJECT_DIR$/first_level.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game_objects.py" beforeDir="false" afterPath="$PROJECT_DIR$/game_objects.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/level_menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/level_menu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/second_level.py" beforeDir="false" afterPath="$PROJECT_DIR$/second_level.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zero_level.py" beforeDir="false" afterPath="$PROJECT_DIR$/zero_level.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,10 +84,10 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2biSzoVwZlNz9TJwsS5Yl4jAmfz" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -30,10 +96,12 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.functions.executor": "Run",
+    "Python.main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/daniil/Desktop/My_works/python_projects/colobok_adventure",
-    "settings.editor.selected.configurable": "vcs.Git"
+    "last_opened_file_path": "C:/Users/daniil/Desktop/My_works/colobok",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   },
   "keyToStringList": {
     "GitStage.ChangesTree.GroupingKeys": [
@@ -43,6 +111,41 @@
     ]
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\daniil\Desktop\My_works\colobok\data\font" />
+      <recent name="C:\Users\daniil\Desktop\My_works\colobok\data\sounds" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="colobok" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -67,7 +170,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706696824949</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="новое README">
+      <option name="closed" value="true" />
+      <created>1706697905167</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1706697905167</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -83,6 +194,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="вся игра и звук" />
-    <option name="LAST_COMMIT_MESSAGE" value="вся игра и звук" />
+    <MESSAGE value="новое README" />
+    <option name="LAST_COMMIT_MESSAGE" value="новое README" />
   </component>
 </project>

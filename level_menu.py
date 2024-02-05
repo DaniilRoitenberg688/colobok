@@ -12,10 +12,10 @@ def level_menu():
 
     running = True
 
-    first_font = pygame.font.Font('data/minecraft-ten-font-cyrillic.ttf', 70)
-    second_font = pygame.font.Font('data/minecraft-ten-font-cyrillic.ttf', 100)
-    third_font = pygame.font.Font('data/minecraft-ten-font-cyrillic.ttf', 40)
-    exit_font = pygame.font.Font('data/minecraft-ten-font-cyrillic.ttf', 50)
+    first_font = pygame.font.Font('data/font/minecraft-ten-font-cyrillic.ttf', 70)
+    second_font = pygame.font.Font('data/font/minecraft-ten-font-cyrillic.ttf', 100)
+    third_font = pygame.font.Font('data/font/minecraft-ten-font-cyrillic.ttf', 40)
+    exit_font = pygame.font.Font('data/font/minecraft-ten-font-cyrillic.ttf', 50)
 
     text = first_font.render('LEVELS', True, GREY)
     text_zero = second_font.render('0', True, BACKGROUND_GREY)

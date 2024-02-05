@@ -93,9 +93,10 @@ def first_level():
         if pygame.sprite.spritecollideany(player, enemies_group):
             alive_or_not = False
 
+        # если касаемся победного места фиксируем время победы и запускаем звук
         if pygame.sprite.spritecollideany(player, win_place_group):
             win_or_not = True
-            pygame.mixer.music.load('data/si.mp3')
+            pygame.mixer.music.load('data/sounds/si.mp3')
             pygame.mixer.music.set_volume(0.5)
             pygame.mixer.music.play(1)
             finish_time = time.time() - now_time
@@ -105,7 +106,7 @@ def first_level():
         if not alive_or_not:
             if not animation_is_running:
                 die_of_hero(player.rect.x, player.rect.y, 1)
-                pygame.mixer.music.load('data/player_die.mp3')
+                pygame.mixer.music.load('data/sounds/player_die.mp3')
                 pygame.mixer.music.set_volume(0.5)
                 pygame.mixer.music.play(1)
             animation_is_running = True
@@ -139,6 +140,7 @@ def first_level():
         if is_pause:
             pause_menu(screen, 100, 100)
 
+        # если победили рисуем победной окошко
         if win_or_not:
             win_window(screen, 100, 100, finish_time - 10)
 

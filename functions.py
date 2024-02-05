@@ -9,7 +9,7 @@ from groups import all_groups
 
 def load_image(name, colorkey=None):
     """Функция для загрузки изображения"""
-    fullname = os.path.join('data', name)
+    fullname = os.path.join('data/images', name)
     # если файл не существует, то выходим
     if not os.path.isfile(fullname):
         print(f"Файл с изображением '{fullname}' не найден")
@@ -36,7 +36,7 @@ def clear_groups():
 
 def load_level(filename):
     """Функция для загрузки уровня"""
-    filename = "data/" + filename
+    filename = "data/maps/" + filename
     with open(filename, 'r') as mapFile:
         level_map = [list(line.strip()) for line in mapFile]
     return level_map
@@ -46,7 +46,7 @@ def pause_menu(screen, x, y):
     """Функция, которая рисует окошко паузы"""
     pygame.init()
     # инициализация шрифта для надписи пауза
-    font = pygame.font.Font('data/minecraft-ten-font-cyrillic.ttf', 70)
+    font = pygame.font.Font('data/font/minecraft-ten-font-cyrillic.ttf', 70)
     text = font.render("PAUSE", True, GREY)
 
     # отрисовка основного окошка
@@ -62,7 +62,7 @@ def pause_menu(screen, x, y):
     pygame.draw.polygon(screen, (255, 255, 255), ((x + 60, y + 225), (x + 60, y + 320), (x + 150, y + 275)))
 
     # создание шрифта для надписи "Выход"
-    font = pygame.font.Font('data/minecraft-ten-font-cyrillic.ttf', 40)
+    font = pygame.font.Font('data/font/minecraft-ten-font-cyrillic.ttf', 40)
     text = font.render("EXIT", True, (255, 255, 255))
 
     # отрисовка кнопки выхода
@@ -76,10 +76,14 @@ def pause_menu(screen, x, y):
 
 
 def win_window(screen, x, y, time):
+    """Отрисовка окна после победы"""
     pygame.init()
-    font = pygame.font.Font('data/minecraft-ten-font-cyrillic.ttf', 70)
+
+    # загрузка шрифта
+    font = pygame.font.Font('data/font/minecraft-ten-font-cyrillic.ttf', 70)
     text = font.render("YOU WIN", True, GREY)
 
+    # загрузка изображения звезды
     star = load_image('star.png', -1)
 
     pygame.transform.scale(star, (100, 100))
@@ -89,23 +93,34 @@ def win_window(screen, x, y, time):
 
     screen.blit(text, (x + 20, y + 20))
 
+    # если меньше 25 секунд три звезды
     if time <= 25:
         screen.blit(star, (x + 15, y + 160))
         screen.blit(star, (x + 145, y + 160))
         screen.blit(star, (x + 270, y + 160))
+
+    # если от 25 до 40 две звезды
     if 25 < time < 40:
         screen.blit(star, (x + 15, y + 160))
         screen.blit(star, (x + 145, y + 160))
+
+    # если больше сорока, то одна звезда
     if time >= 40:
         screen.blit(star, (x + 15, y + 160))
 
-    font = pygame.font.Font('data/minecraft-ten-font-cyrillic.ttf', 26)
+    # загрузка и отображение текста с дальнейшими указаниями
+    font = pygame.font.Font('data/font/minecraft-ten-font-cyrillic.ttf', 26)
     text = font.render("PRESS ANY KEY TO EXIT", True, (188, 188, 188))
+
     screen.blit(text, (x + 10, y + 310))
 
 
 def draw_pacman_hp(screen, num):
+    """Отрисовка полосы здоровья босса пакмена"""
     pygame.draw.rect(screen, (0, 0, 0), (30, 20, 20 * 27, 30))
     pygame.draw.rect(screen, (0, 255, 0), (30, 20, num * 27, 30))
 
 
+def main_exit():
+    pygame.quit()
+    exit()
