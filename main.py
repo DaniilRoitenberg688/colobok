@@ -24,14 +24,6 @@ def main():
     first_text = font_for_space.render('Press SPACE to start', True, GREY)
     second_text = font_for_escape.render('ESCAPE to exit', True, (188, 188, 188))
 
-    # отрисовка всех элементов
-    screen.fill((255, 255, 255))
-    screen.blit(image, (20, 60))
-    screen.blit(name_of_game, (25, 30))
-    screen.blit(first_text, (55, 580))
-    screen.blit(second_text, (200, 630))
-
-    pygame.display.flip()
 
     while running:
         for event in pygame.event.get():
@@ -44,6 +36,15 @@ def main():
                 # если ESCAPE выходим
                 if event.key == pygame.K_ESCAPE:
                     running = False
+
+        # отрисовка всех элементов
+        screen.fill((255, 255, 255))
+        screen.blit(image, (20, 60))
+        screen.blit(name_of_game, (25, 30))
+        screen.blit(first_text, (55, 580))
+        screen.blit(second_text, (200, 630))
+
+        pygame.display.flip()
 
     main_exit()
 

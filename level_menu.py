@@ -34,6 +34,7 @@ def level_menu():
                 y = event.pos[1]
                 if 45 < x < 245 and 170 < y < 370:
                     zero_level()
+
                 if 350 < x < 550 and 17 < y < 370:
                     first_level()
 
@@ -61,8 +62,6 @@ def level_menu():
         screen.blit(text, (140, 20))
 
         pygame.display.flip()
-
-    pygame.mixer.music.stop()
 
 
 if __name__ == '__main__':
