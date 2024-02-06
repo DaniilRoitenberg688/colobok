@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85d9c359-c8ac-4765-a1a1-117bea14177d" name="Changes" comment="Игра полностью сделана.">
+    <list default="true" id="85d9c359-c8ac-4765-a1a1-117bea14177d" name="Changes" comment="Небольшая доработка">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/level_menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/level_menu.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -17,6 +18,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -152,7 +156,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707147141728</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Небольшая доработка">
+      <option name="closed" value="true" />
+      <created>1707147610600</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1707147610600</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -170,6 +182,7 @@
     <MESSAGE value="вся игра и звук" />
     <MESSAGE value="новое README" />
     <MESSAGE value="Игра полностью сделана." />
-    <option name="LAST_COMMIT_MESSAGE" value="Игра полностью сделана." />
+    <MESSAGE value="Небольшая доработка" />
+    <option name="LAST_COMMIT_MESSAGE" value="Небольшая доработка" />
   </component>
 </project>

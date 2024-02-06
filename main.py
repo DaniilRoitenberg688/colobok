@@ -24,7 +24,6 @@ def main():
     first_text = font_for_space.render('Press SPACE to start', True, GREY)
     second_text = font_for_escape.render('ESCAPE to exit', True, (188, 188, 188))
 
-
     while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -43,6 +42,9 @@ def main():
         screen.blit(name_of_game, (25, 30))
         screen.blit(first_text, (55, 580))
         screen.blit(second_text, (200, 630))
+
+        pygame.display.set_caption('Начальный экран')
+        pygame.display.set_icon(load_image('full_red.png'))
 
         pygame.display.flip()
 

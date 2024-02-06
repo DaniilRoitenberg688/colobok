@@ -1,7 +1,7 @@
 import time
 
 from constants import *
-from functions import load_level, clear_groups, pause_menu, win_window, draw_pacman_hp
+from functions import load_level, clear_groups, pause_menu, win_window, draw_pacman_hp, load_image
 from game_objects import generate_level, die_of_hero
 from groups import *
 
@@ -48,6 +48,7 @@ def second_level():
 
     # начальное время
     start_time = time.time()
+    finish_time = 0
 
     while running:
         screen.fill(BACKGROUND_GREY)
@@ -99,7 +100,7 @@ def second_level():
             die_of_hero(pacman.rect.x, pacman.rect.y, 0)
             pacman.kill()
             pacman_die_animation = True
-            end_time = time.time()
+            finish_time = time.time()
 
         # если касаемся врага умираем
         if pygame.sprite.spritecollideany(player, enemies_group):
@@ -160,7 +161,10 @@ def second_level():
         # если победа рисуем победное окно
         if win_or_not:
             clear_groups()
-            win_window(screen, 100, 100, end_time - start_time - 20)
+            win_window(screen, 100, 100, finish_time - start_time - 20)
+
+        pygame.display.set_caption('Уровень 2')
+        pygame.display.set_icon(load_image('full_red.png'))
 
         clock.tick(FPS)
         pygame.display.flip()

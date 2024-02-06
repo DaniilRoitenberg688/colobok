@@ -2,6 +2,7 @@ import pygame
 
 from constants import WIDTH, HEIGHT, GREY, BACKGROUND_GREY
 from first_level import first_level
+from functions import load_image
 from second_level import second_level
 from zero_level import zero_level
 
@@ -69,6 +70,9 @@ def level_menu():
         screen.blit(exit_text, (383, 520))
 
         screen.blit(text, (140, 20))
+
+        pygame.display.set_caption('Меню уровней')
+        pygame.display.set_icon(load_image('full_red.png'))
 
         pygame.display.flip()
 

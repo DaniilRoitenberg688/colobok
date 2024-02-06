@@ -8,6 +8,7 @@ from game_objects import *
 def first_level():
     """Функция для запуска обучения"""
     now_time = time.time()
+    finish_time = 0
 
     # создание и настройка экрана
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -143,6 +144,9 @@ def first_level():
         # если победили рисуем победной окошко
         if win_or_not:
             win_window(screen, 100, 100, finish_time - 10)
+
+        pygame.display.set_caption('Уровень 1')
+        pygame.display.set_icon(load_image('full_red.png'))
 
         pygame.display.flip()
         clock.tick(FPS)
